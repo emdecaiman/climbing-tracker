@@ -1,12 +1,14 @@
-import { Button } from "@/components/ui/button";
-function App() {
-  return (
-    <>
-        <p className="text-2l font-bold underline">hello world</p>
-        <Button>click me</Button>
-    </>
+import { columns } from "@/components/climbs/columns";
+import { climbs } from "@/utils/climbs";
+import { DataTable } from "@/components/climbs/data-table";
 
-  )
+function App() {
+    return (
+        <div className="p-4">
+            <h1 className="text-2xl font-bold mb-4">Payment Table</h1>
+            <DataTable columns={columns} data={climbs} />
+        </div>
+    )
 }
 
-export default App
+export default App;
