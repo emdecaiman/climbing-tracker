@@ -3,16 +3,16 @@ import { Button } from "../ui/button";
 import { ArrowUpDown } from "lucide-react";
 
 export type Climb = {
-    climb_id: number
-    name: string
-    date: Date
-    location: string
-    grade: string
-    type: "boulder" | "top-rope" | "lead"
-    environment: "outdoor" | "indoor"
-    attempts: number
-    note: string
-    attachment: string
+    climb_id: number;
+    name: string;
+    date: Date;
+    location: string;
+    grade: string;
+    type: "boulder" | "top-rope" | "lead";
+    environment: "outdoor" | "indoor";
+    attempts: number;
+    note: string;
+    attachment: string;
 };
 
 export const columns: ColumnDef<Climb>[] = [
