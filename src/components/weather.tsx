@@ -91,7 +91,7 @@ export const Weather = () => {
 
     return (
         <>
-            <section className="bg-slate-400/50 shadow-xl rounded-xl flex flex-col items-center justify-centera w-96 h-60">
+            <section className="bg-neutral-400/25 shadow-xl rounded-xl flex flex-col items-center justify-centera w-96 h-60">
                 {loading && (
                     <div className="flex justify-center items-center h-full">
                         <MoonLoader loading size={30} />
@@ -110,7 +110,7 @@ export const Weather = () => {
                         <div className="flex justify-between items-center font-bold">
                             <span className="flex items-center gap-x-2">
                                 <FaMapMarkerAlt size={20} />
-                                <p className="text-xl ">{weatherData.name}</p>
+                                <p className="text-xl">{weatherData.name}</p>
                             </span>
 
                             <div className="flex flex-col items-center">
@@ -135,7 +135,7 @@ export const Weather = () => {
                                     <p className="text-lg font-bold">
                                         Humidity
                                     </p>
-                                    <p className="text-lg font-medium">
+                                    <p className="text-lg text-black/75 font-medium">
                                         {weatherData.main.humidity}%
                                     </p>
                                 </span>
@@ -148,7 +148,7 @@ export const Weather = () => {
                                     <p className="text-lg font-bold">
                                         Wind Speed
                                     </p>
-                                    <p className="text-lg font-medium">
+                                    <p className="text-lg text-black/75 font-medium">
                                         {weatherData.wind.speed} km/h
                                     </p>
                                 </span>

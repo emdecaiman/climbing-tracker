@@ -6,10 +6,12 @@ import { Weather } from "@/components/weather";
 function App() {
     return (
         <>
+            <div className="p-4 flex justify-center items-center">
+                <Weather/>
+            </div>
             <div className="p-4">
                 <DataTable columns={columns} data={climbs} />
             </div>
-            <Weather/>
 
         </>
     )

@@ -40,9 +40,9 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
 
     return (
         <>
-            <div className="rounded-md border">
+            <div className="rounded-xl shadow-xl bg-neutral-400/25 text-black/75">
                 <Table>
-                    <TableHeader>
+                    <TableHeader className="text-black">
                         {table.getHeaderGroups().map((headerGroup) => (
                             <TableRow key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => {
@@ -64,6 +64,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                                 <TableRow
                                     key={row.id}
                                     data-state={row.getIsSelected() && "selected"}
+                                    className="border-none"
                                 >
                                     {row.getVisibleCells().map((cell) => (
                                         <TableCell key={cell.id}>
@@ -84,15 +85,15 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
             </div>
             <div className="flex items-center justify-end space-x-2 py-4">
                 <Button
-                    variant="outline"
-                    size="sm"
+                    className="cursor-pointer hover:bg-neutral-400/15 text-black/75"
                     onClick={() => table.previousPage()}
+                    size="sm"
                     disabled={!table.getCanPreviousPage()}
                 >
                     Previous
                 </Button>
                 <Button
-                    variant="outline"
+                    className="cursor-pointer hover:bg-neutral-400/15 text-black/75"
                     size="sm"
                     onClick={() => table.nextPage()}
                     disabled={!table.getCanNextPage()}
