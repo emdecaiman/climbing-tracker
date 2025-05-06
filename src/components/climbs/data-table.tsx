@@ -83,23 +83,33 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                     </TableBody>
                 </Table>
             </div>
-            <div className="flex items-center justify-end space-x-2 py-4">
+            <div className="flex justify-between items-center">
                 <Button
-                    className="cursor-pointer hover:bg-neutral-400/15 text-black/75"
-                    onClick={() => table.previousPage()}
+                    className="cursor-pointer font-light text-white bg-blue-500 hover:bg-blue-600"
                     size="sm"
-                    disabled={!table.getCanPreviousPage()}
                 >
-                    Previous
+                    New Climb Log
                 </Button>
-                <Button
-                    className="cursor-pointer hover:bg-neutral-400/15 text-black/75"
-                    size="sm"
-                    onClick={() => table.nextPage()}
-                    disabled={!table.getCanNextPage()}
-                >
-                    Next
-                </Button>
+                <div className="flex items-center justify-end space-x-2 py-4">
+                    <Button
+                        className="cursor-pointer hover:bg-neutral-400/15 text-black/75 border-black/15"
+                        variant="outline"
+                        onClick={() => table.previousPage()}
+                        size="sm"
+                        disabled={!table.getCanPreviousPage()}
+                    >
+                        Previous
+                    </Button>
+                    <Button
+                        className="cursor-pointer hover:bg-neutral-400/15 text-black/75 border-black/15"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => table.nextPage()}
+                        disabled={!table.getCanNextPage()}
+                    >
+                        Next
+                    </Button>
+                </div>
             </div>
         </>
     )

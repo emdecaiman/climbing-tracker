@@ -91,7 +91,7 @@ export const Weather = () => {
 
     return (
         <>
-            <section className="bg-neutral-400/25 shadow-xl rounded-xl flex flex-col items-center justify-centera w-96 h-60">
+            <section className="flex flex-col">
                 {loading && (
                     <div className="flex justify-center items-center h-full">
                         <MoonLoader loading size={30} />
@@ -107,35 +107,35 @@ export const Weather = () => {
                 {!error && weatherData && (
                     <div>
                         {/* Displaying current weather data */}
-                        <div className="flex justify-between items-center font-bold">
+                        <div className="flex flex-col items-end ">
                             <span className="flex items-center gap-x-2">
-                                <FaMapMarkerAlt size={20} />
-                                <p className="text-xl">{weatherData.name}</p>
+                                <FaMapMarkerAlt size={15} />
+                                <p className="font-bold">{weatherData.name}</p>
                             </span>
 
-                            <div className="flex flex-col items-center">
+                            <div className="flex items-center">
                                 <img
                                     src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
                                     alt="weather icon"
                                 />{" "}
                                 {/* Weather icon */}
                                 <span>
-                                    <p className="text-4xl font-bold">
+                                    <p className="text-2xl font-bold">
                                         {Math.round(weatherData.main.temp)} °C
                                     </p>
                                 </span>
                             </div>
                         </div>
 
-                        <div className="my-5 flex justify-between items-center gap-x-20">
+                        <div className="flex justify-between items-center gap-10">
                             {/* Humidity */}
                             <div className="flex items-center gap-x-3">
-                                <FaDroplet size={20} />
+                                <FaDroplet size={15} />
                                 <span>
-                                    <p className="text-lg font-bold">
+                                    <p className="font-bold">
                                         Humidity
                                     </p>
-                                    <p className="text-lg text-black/75 font-medium">
+                                    <p className="text-black/85 font-medium">
                                         {weatherData.main.humidity}%
                                     </p>
                                 </span>
@@ -143,12 +143,12 @@ export const Weather = () => {
 
                             {/* Wind Speed */}
                             <div className="flex w-1/2 items-center gap-x-3">
-                                <FaWind size={20} />
+                                <FaWind size={15} />
                                 <span>
-                                    <p className="text-lg font-bold">
+                                    <p className="font-bold">
                                         Wind Speed
                                     </p>
-                                    <p className="text-lg text-black/75 font-medium">
+                                    <p className="text-black/75 font-medium">
                                         {weatherData.wind.speed} km/h
                                     </p>
                                 </span>
