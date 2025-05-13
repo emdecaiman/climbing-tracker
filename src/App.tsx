@@ -3,6 +3,7 @@ import { climbs } from "@/utils/climbs";
 import { DataTable } from "@/components/climbs/data-table";
 import { Weather } from "@/components/weather";
 import { Profile } from "@/components/profile";
+import { ClimbForm } from "@/components/climb-form";
 
 function App() {
     return (
@@ -14,7 +15,6 @@ function App() {
             <div className="mt-4">
                 <DataTable columns={columns} data={climbs} />
             </div>
-
         </div>
     )
 }
