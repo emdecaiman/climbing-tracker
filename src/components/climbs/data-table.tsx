@@ -15,8 +15,9 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { ClimbDialog } from "@/components/climb-dialog";
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
@@ -84,12 +85,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                 </Table>
             </div>
             <div className="flex justify-between items-center">
-                <Button
-                    className="cursor-pointer font-light text-white bg-blue-500 hover:bg-blue-600"
-                    size="sm"
-                >
-                    New Climb Log
-                </Button>
+                <ClimbDialog/>
                 <div className="flex items-center justify-end space-x-2 py-4">
                     <Button
                         className="cursor-pointer hover:bg-neutral-400/15 text-black/75 border-black/15"

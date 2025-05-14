@@ -64,7 +64,11 @@ export const ClimbForm = () => {
                         <FormItem>
                             <FormLabel>Climb Name</FormLabel>
                             <FormControl>
-                                <Input placeholder="Climb Name (optional)" {...field} />
+                                <Input
+                                    placeholder="Climb Name (optional)"
+                                    {...field}
+                                    className="border-black/15"
+                                />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -78,7 +82,11 @@ export const ClimbForm = () => {
                         <FormItem>
                             <FormLabel>Location</FormLabel>
                             <FormControl>
-                                <Input placeholder="Location" {...field} />
+                                <Input
+                                    placeholder="Location"
+                                    {...field}
+                                    className="border-black/15"
+                                />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -92,7 +100,11 @@ export const ClimbForm = () => {
                         <FormItem>
                             <FormLabel>Grade</FormLabel>
                             <FormControl>
-                                <Input placeholder="e.g., 5.10a, V5, 6a, hex1" {...field} />
+                                <Input
+                                    placeholder="e.g., 5.10a, V5, 6a, hex1"
+                                    {...field}
+                                    className="border-black/15"
+                                />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -106,7 +118,7 @@ export const ClimbForm = () => {
                         <FormItem>
                             <FormLabel>Type</FormLabel>
                             <FormControl>
-                                <select {...field} className="border rounded p-2 w-full">
+                                <select {...field} className="border rounded p-2 w-full border-black/15">
                                     <option value="Boulder">Boulder</option>
                                     <option value="Top-Rope">Top-Rope</option>
                                     <option value="Lead">Lead</option>
@@ -124,7 +136,7 @@ export const ClimbForm = () => {
                         <FormItem>
                             <FormLabel>Environment</FormLabel>
                             <FormControl>
-                                <select {...field} className="border rounded p-2 w-full">
+                                <select {...field} className="border rounded p-2 w-full border-black/15">
                                     <option value="Indoor">Indoor</option>
                                     <option value="Outdoor">Outdoor</option>
                                 </select>
@@ -149,7 +161,7 @@ export const ClimbForm = () => {
                                         className="border rounded"
                                         value={undefined} // Ensure value is not set to a boolean
                                     />
-                                    <span>Flash Attempt?</span>
+                                    <span className="text-sm text-black/50">Flash Attempt?</span>
                                 </label>
                             </FormControl>
                             <FormMessage />
@@ -167,7 +179,7 @@ export const ClimbForm = () => {
                                 <textarea
                                     placeholder="Add any notes about the climb"
                                     {...field}
-                                    className="border rounded p-2 w-full"
+                                    className="border rounded p-2 w-full text-black/50"
                                     rows={4}
                                 />
                             </FormControl>
@@ -175,7 +187,8 @@ export const ClimbForm = () => {
                         </FormItem>
                     )}
                 />
-                <div className="flex justify-center">
+
+                <div className="flex justify-end">
                     <Button
                         type="submit"
                         className="cursor-pointer font-light text-white bg-blue-500 hover:bg-blue-600"
@@ -183,6 +196,7 @@ export const ClimbForm = () => {
                     >
                         Submit
                     </Button>
+
                 </div>
             </form>
         </Form>
