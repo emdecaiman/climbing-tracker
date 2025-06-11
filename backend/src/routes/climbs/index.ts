@@ -1,18 +1,18 @@
 import { Router } from "express";
+import { 
+    listClimbs, 
+    getClimbById, 
+    createClimb, 
+    updateClimb, 
+    deleteClimb  
+} from "./climbsController";
 
 const router = Router();
 
-router.get("/", (req, res) => {
-    res.send("The List of Climbs");
-});
-
-router.get("/:id", (req, res) => {
-    console.log(req.params);
-    res.send("A climb");
-});
-
-router.post("/", (req, res) => {
-    res.send("New climb created");
-});
+router.get("/", listClimbs);
+router.get("/:id", getClimbById);
+router.post("/", createClimb);
+router.put("/:id", updateClimb);
+router.delete("/:id", deleteClimb);
 
 export default router;
