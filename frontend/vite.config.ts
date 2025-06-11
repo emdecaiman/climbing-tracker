@@ -18,6 +18,11 @@ export default defineConfig(({ mode }) => {
             alias: {
                 "@": path.resolve(__dirname, "./src"),
             },
+        },
+        server: {
+            proxy: {
+                "/climbs": "http://localhost:3000"
+            }
         }
     }
 });

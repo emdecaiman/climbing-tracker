@@ -46,12 +46,16 @@ export const ClimbForm = () => {
         },
     });
 
-    const onSubmit = (values: z.infer<typeof formSchema>) => {
-        //
-        // save to database
-        //
-
-        console.log(values);
+    const onSubmit = async (values: z.infer<typeof formSchema>) => {
+        try {
+            const response = await fetch("/climbs", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(values),
+            });
+        } catch (error) {
+            console.error("Error submitting form:", error);
+        }
     };
 
     return (
