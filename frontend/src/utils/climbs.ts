@@ -146,3 +146,19 @@ export const climbs: Climb[] = [
         attachment: "apron-slab.jpg",
     },
 ];
+
+// CREATE TABLE climb (
+//     climb_id SERIAL PRIMARY KEY,
+//     name VARCHAR(30),
+//     date DATE DEFAULT now(),
+//     location VARCHAR(30),
+//     grade VARCHAR(10),
+//     type VARCHAR(30),
+//     environment VARCHAR(30),
+//     flash BOOLEAN,
+//     note VARCHAR(30),
+//     attachment VARCHAR(30)
+// );
+
+// INSERT INTO climb (name, location, grade, type, environment, flash, note, attachment)
+//     VALUES ('Slab Mastery', 'Squamish', '5.9', 'lead', 'outdoor', TRUE, 'Fun slab climb', 'apron-slab.jpg');
