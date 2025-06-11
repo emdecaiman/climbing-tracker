@@ -1,4 +1,4 @@
-import { Climb } from "@/components/climbs/columns";
+import { Climb } from "./components/climbs/columns";
 
 export const climbs: Climb[] = [
     {

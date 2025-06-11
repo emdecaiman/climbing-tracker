@@ -1,8 +1,8 @@
-import { columns } from "@/components/climbs/columns";
-import { climbs } from "@/utils/climbs";
-import { DataTable } from "@/components/climbs/data-table";
-import { Weather } from "@/components/weather";
-import { Profile } from "@/components/profile";
+import { columns } from "./components/climbs/columns";
+import { climbs } from "./utils/climbs";
+import { DataTable } from "./components/climbs/data-table";
+import { Weather } from "./components/weather";
+import { Profile } from "./components/profile";
 
 function App() {
     return (
