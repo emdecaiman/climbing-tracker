@@ -8,10 +8,14 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { ClimbForm } from "@/components/climb-form";
+import { useState } from "react";
+import { Climb } from "../components/climbs/columns";
 
-export const ClimbDialog = () => {
+export const ClimbDialog = ({ onClimbCreated }: {onClimbCreated?: (newClimb: Climb) => void }) => {
+    const [open, setOpen] = useState<boolean>(false);
+
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 <Button
                     className="cursor-pointer font-light text-white bg-blue-500 hover:bg-blue-600"
@@ -27,7 +31,7 @@ export const ClimbDialog = () => {
                 <DialogDescription className="text-black/50">
                     Submit a new climb to your log. Click save when you're done.
                 </DialogDescription>
-                <ClimbForm/>
+                <ClimbForm onSuccess={() => setOpen(false)} onClimbCreated={onClimbCreated} />
             </DialogContent>
         </Dialog>
     )

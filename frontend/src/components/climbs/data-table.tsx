@@ -18,13 +18,15 @@ import {
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { ClimbDialog } from "@/components/climb-dialog";
+import { Climb } from "../climbs/columns";
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
+    onClimbCreated: (newClimb: Climb) => void
 };
 
-export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({ columns, data, onClimbCreated }: DataTableProps<TData, TValue>) {
     const [sorting, setSorting] = useState<SortingState>([])
 
     const table = useReactTable({
@@ -85,7 +87,7 @@ export function DataTable<TData, TValue>({ columns, data }: DataTableProps<TData
                 </Table>
             </div>
             <div className="flex justify-between items-center">
-                <ClimbDialog/>
+                <ClimbDialog onClimbCreated={onClimbCreated} />
                 <div className="flex items-center justify-end space-x-2 py-4">
                     <Button
                         className="cursor-pointer hover:bg-neutral-400/15 text-black/75 border-black/15"

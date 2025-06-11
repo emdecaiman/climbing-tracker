@@ -10,7 +10,7 @@ export type Climb = {
     grade: string;
     type: "boulder" | "top-rope" | "lead";
     environment: "outdoor" | "indoor";
-    attempts: number;
+    flash: boolean;
     note: string;
     attachment: string;
 };
@@ -42,10 +42,6 @@ export const columns: ColumnDef<Climb>[] = [
                     <ArrowUpDown className="ml-2 h-4 w-4" />
                 </Button>
             )
-        },
-        cell: ({ row }) => {
-            const date = (row.getValue("date") as Date).toDateString();
-            return <div>{date}</div>
         },
     },
     {
@@ -105,8 +101,8 @@ export const columns: ColumnDef<Climb>[] = [
         },
     },
     {
-        accessorKey: "attempts",
-        header: "Attempts",
+        accessorKey: "flash",
+        header: "Flash",
     },
     {
         accessorKey: "note",

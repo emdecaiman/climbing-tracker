@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Climb } from "../components/climbs/columns";
 
 // typescript only compile time static type checking
 // use zod for runtime checks
@@ -28,10 +29,16 @@ const formSchema = z.object({
     type: z.enum(["Boulder", "Top-Rope", "Lead"]),
     environment: z.enum(["Indoor", "Outdoor"]),
     flash: z.boolean(),
-    notes: z.string().max(500, "Notes must be 500 characters or less").optional(),
+    note: z.string().max(255, "Notes must be 255 characters or less").optional(),
 });
 
-export const ClimbForm = () => {
+interface onSuccessProp {
+    onSuccess?: () => void;
+    onClimbCreated?: (newClimb: Climb) => void;
+}
+
+export const ClimbForm = ({ onSuccess, onClimbCreated }: onSuccessProp) => {
+    // define form state with zod validator
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -42,7 +49,7 @@ export const ClimbForm = () => {
             type: "Boulder",
             environment: "Indoor",
             flash: false,
-            notes: "",
+            note: "",
         },
     });
 
@@ -53,6 +60,12 @@ export const ClimbForm = () => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(values),
             });
+            const newClimb = await response.json();
+
+            if (response.ok && onSuccess && onClimbCreated) {
+                onSuccess();
+                onClimbCreated(newClimb);
+            }
         } catch (error) {
             console.error("Error submitting form:", error);
         }
@@ -175,7 +188,7 @@ export const ClimbForm = () => {
 
                 <FormField
                     control={form.control}
-                    name="notes"
+                    name="note"
                     render={({ field }) => (
                         <FormItem>
                             <FormLabel>Notes</FormLabel>
@@ -193,14 +206,13 @@ export const ClimbForm = () => {
                 />
 
                 <div className="flex justify-end">
-                    <Button
-                        type="submit"
-                        className="cursor-pointer font-light text-white bg-blue-500 hover:bg-blue-600"
-                        size="sm"
-                    >
-                        Submit
-                    </Button>
-
+                        <Button
+                            type="submit"
+                            className="cursor-pointer font-light text-white bg-blue-500 hover:bg-blue-600"
+                            size="sm"
+                        >
+                            Submit
+                        </Button>
                 </div>
             </form>
         </Form>
